@@ -1,0 +1,86 @@
+.booking-page {
+  padding: 20px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.page-title {
+  color: #007bff;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.doctor-info-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-name {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.doctor-fee,
+.doctor-timings {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.booking-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.date-picker,
+.time-picker {
+  width: 100%;
+  padding: 8px;
+}
+
+.check-availability,
+.book-now {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.check-availability {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.book-now {
+  background-color: #333;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .doctor-info-container {
+    padding: 15px;
+  }
+
+  .doctor-name {
+    font-size: 1.4rem;
+  }
+
+  .doctor-fee,
+  .doctor-timings {
+    font-size: 0.9rem;
+  }
+
+  .check-availability,
+  .book-now {
+    font-size: 0.9rem;
+  }
+}
