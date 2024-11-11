@@ -15,7 +15,7 @@ const Login = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/v1/user/login`,
+        `${process.env.REACT_API_URL}/api/v1/user/login`,
         values
       );
       window.location.reload();
