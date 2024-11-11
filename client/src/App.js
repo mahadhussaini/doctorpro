@@ -19,12 +19,12 @@ import DoctorAppointments from "./pages/doctor/DoctorAppointments";
 import UserProfile from "./pages/UserProfile";
 import EditProfile from "./pages/EditProfile";
 
-axios.defaults.baseURL = axios.defaults.baseURL =
-  process.env.REACT_API_URL || "http://localhost:8080";
+axios.defaults.baseURL = process.env.REACT_API_URL || "http://localhost:8080";
 axios.defaults.withCredentials = true;
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
+
   return (
     <>
       <BrowserRouter>
@@ -33,6 +33,31 @@ function App() {
         ) : (
           <Routes>
             <Route
+              path="/"
+              element={
+                <PublicRoute>
+                  <HomePage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            {/* All other paths require login */}
+            <Route
               path="/apply-doctor"
               element={
                 <ProtectedRoute>
@@ -40,8 +65,22 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/profile/edit" element={<EditProfile />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile/edit"
+              element={
+                <ProtectedRoute>
+                  <EditProfile />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/admin/users"
               element={
@@ -83,22 +122,6 @@ function App() {
               }
             />
             <Route
-              path="/login"
-              element={
-                <PublicRoute>
-                  <Login />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <PublicRoute>
-                  <Register />
-                </PublicRoute>
-              }
-            />
-            <Route
               path="/appointments"
               element={
                 <ProtectedRoute>
@@ -111,14 +134,6 @@ function App() {
               element={
                 <ProtectedRoute>
                   <DoctorAppointments />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <HomePage />
                 </ProtectedRoute>
               }
             />
